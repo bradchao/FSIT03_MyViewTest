@@ -19,6 +19,7 @@ public class MyView extends View {
     public MyView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         setBackgroundColor(Color.GREEN);
+
         paint = new Paint();
         paint.setColor(Color.BLUE);
         paint.setStrokeWidth(4);
@@ -58,6 +59,11 @@ public class MyView extends View {
         invalidate();
     }
 
+    public void clear(){
+        lines.clear();
+        invalidate();
+    }
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -70,6 +76,15 @@ public class MyView extends View {
         }
 
 
+    }
+
+    public void setColor(int color){
+        paint.setColor(color);
+        invalidate();
+    }
+
+    public int getColor(){
+        return paint.getColor();
     }
 
     private class Point {
